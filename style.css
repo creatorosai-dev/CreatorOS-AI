@@ -183,3 +183,35 @@ footer p{
     color:#ffffff;
     min-height:30px;
 }
+
+@media (max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .chat-box input{
+        width:100%;
+        max-width:320px;
+    }
+
+    .chat-box button{
+        margin-top:10px;
+        margin-left:0;
+    }
+
+}
