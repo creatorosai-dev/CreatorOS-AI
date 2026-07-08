@@ -3,7 +3,7 @@ function askAI() {
     let question = document.getElementById("userInput").value;
     let answer = document.getElementById("response");
 
-    if (question == "") {
+    if(question.trim()=="") {
         answer.innerHTML = "Please enter a question.";
     }
     else if (question.toLowerCase().includes("hello")) {
