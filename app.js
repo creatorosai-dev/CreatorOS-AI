@@ -13,6 +13,7 @@ function askAI(){
     if(question==""){
         answer.innerHTML="Please enter a question.";
     }
+    
     else {
 
     if (question.toLowerCase().includes("hello")) {
