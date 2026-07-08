@@ -13,8 +13,19 @@ function askAI(){
     if(question==""){
         answer.innerHTML="Please enter a question.";
     }
-    else{
-        answer.innerHTML=
-        "🤖 CreatorOS AI: I received your question: " + question;
+    else {
+
+    if (question.toLowerCase().includes("hello")) {
+        answer.innerHTML = "🤖 Hello! Welcome to CreatorOS AI.";
     }
-}
+    else if (question.toLowerCase().includes("youtube")) {
+        answer.innerHTML = "🤖 YouTube par consistently quality content upload karo.";
+    }
+    else if (question.toLowerCase().includes("ai")) {
+        answer.innerHTML = "🤖 AI can help you create content, scripts and ideas faster.";
+    }
+    else {
+        answer.innerHTML = "🤖 Sorry, I don't know that yet.";
+    }
+
+    }
