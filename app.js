@@ -1,4 +1,4 @@
-function askAI() {
+function askAI() document.getElementById("userInput").value = ""; {
 
     let question = document.getElementById("userInput").value;
     let answer = document.getElementById("response");
@@ -19,3 +19,11 @@ function askAI() {
         answer.innerHTML = "🤖 Sorry, I don't know that yet.";
     }
 }
+
+document.getElementById("userInput").addEventListener("keypress", function(event) {
+
+    if(event.key === "Enter") {
+        askAI();
+    }
+
+});
