@@ -176,3 +176,10 @@ footer p{
     color:white;
     cursor:pointer;
 }
+
+#response{
+    margin-top:20px;
+    font-size:18px;
+    color:#ffffff;
+    min-height:30px;
+}
