@@ -1,7 +1,3 @@
-document.querySelector("button").addEventListener("click", function () {
-    alert("Welcome to CreatorOS AI 🚀");
-});
-
 function askAI() {
 
     let question = document.getElementById("userInput").value;
