@@ -3,28 +3,32 @@ function askAI() {
     let question = document.getElementById("userInput").value;
     let answer = document.getElementById("response");
 
-    if(question.trim()=="") {
+    if (question.trim() === "") {
         answer.innerHTML = "Please enter a question.";
+        return;
     }
-    else if (question.toLowerCase().includes("hello")) {
+
+    let q = question.toLowerCase();
+
+    if (q.includes("hello") || q.includes("hi")) {
         answer.innerHTML = "🤖 CreatorOS AI: Hello! Welcome to CreatorOS AI.";
     }
-    else if (question.toLowerCase().includes("youtube")) {
-        answer.innerHTML = "📺 YouTube par consistently quality content upload karo.";
+    else if (q.includes("youtube")) {
+        answer.innerHTML = "📺 CreatorOS AI: YouTube par consistently quality content upload karo.";
     }
-    else if (question.toLowerCase().includes("ai")) {
-        answer.innerHTML = "🤖 AI can help you create content, scripts and ideas faster.";
+    else if (q.includes("ai")) {
+        answer.innerHTML = "🤖 CreatorOS AI: AI can help you create content, scripts and ideas faster.";
     }
     else {
-        answer.innerHTML = "🤖 Sorry, I don't know that yet.";
+        answer.innerHTML = "🤖 CreatorOS AI: Sorry, I don't know that yet.";
     }
+
+    // Input clear after reply
+    document.getElementById("userInput").value = "";
 }
 
 document.getElementById("userInput").addEventListener("keypress", function(event) {
-
-    if(event.key === "Enter") {
+    if (event.key === "Enter") {
         askAI();
     }
-
 });
-
