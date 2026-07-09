@@ -1,4 +1,4 @@
-function askAI() document.getElementById("userInput").value = ""; {
+function askAI() {
 
     let question = document.getElementById("userInput").value;
     let answer = document.getElementById("response");
