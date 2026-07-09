@@ -1,30 +1,40 @@
-function askAI() {
+async function askAI() {
 
-    let question = document.getElementById("userInput").value;
+    let input = document.getElementById("userInput");
     let answer = document.getElementById("response");
 
-    if (question.trim() === "") {
+    let question = input.value.trim();
+
+    if (question === "") {
         answer.innerHTML = "Please enter a question.";
         return;
     }
 
-    let q = question.toLowerCase();
+    answer.innerHTML = "⏳ Thinking...";
 
-    if (q.includes("hello") || q.includes("hi")) {
-        answer.innerHTML = "🤖 CreatorOS AI: Hello! Welcome to CreatorOS AI.";
-    }
-    else if (q.includes("youtube")) {
-        answer.innerHTML = "📺 CreatorOS AI: YouTube par consistently quality content upload karo.";
-    }
-    else if (q.includes("ai")) {
-        answer.innerHTML = "🤖 CreatorOS AI: AI can help you create content, scripts and ideas faster.";
-    }
-    else {
-        answer.innerHTML = "🤖 CreatorOS AI: Sorry, I don't know that yet.";
+    try {
+
+        let response = await fetch("/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: question
+            })
+        });
+
+        let data = await response.json();
+
+        answer.innerHTML = "🤖 " + data.reply;
+
+    } catch (error) {
+
+        answer.innerHTML = "❌ Unable to connect to server.";
+
     }
 
-    // Input clear after reply
-    document.getElementById("userInput").value = "";
+    input.value = "";
 }
 
 document.getElementById("userInput").addEventListener("keypress", function(event) {
